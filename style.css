@@ -1,0 +1,140 @@
+:root{--ink:#17120e;--paper:#ede2cf;--cream:#f7f0e5;--brown:#503929;--green:#24392d;--muted:#b4a38b;--line:rgba(238,224,200,.22);font-family:"Zen Kaku Gothic New",sans-serif;color:var(--cream);background:var(--ink)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;width:100%;max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}
+body{margin:0;min-width:320px;width:100%;max-width:100%;overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y}
+[hidden]{display:none!important}
+button,a{font:inherit}
+button{cursor:pointer}
+.top-image{
+  position: relative;
+  z-index: 1;
+
+  width: 100vw;
+  height: 130vw;
+
+  background-image: url("assets/images/cafe-bg6.png");
+  background-size: cover;
+
+  pointer-events: none;
+}
+.background-stack{position:fixed;inset:0;z-index:-2;background:#17120e;overflow:hidden}
+.scroll-bg{position:absolute;inset:-3%;background:center/cover no-repeat;opacity:0;transition:opacity .65s ease;filter:brightness(.5) saturate(.7);transform:scale(1.04)}
+.bg-cafe{background-image:linear-gradient(#22150d83,#22150d83),url("assets/images/cafe-bg.jpg");opacity:1}
+.bg-outside{background-image:linear-gradient(#1a2117aa,#1a2117aa),url("assets/images/outside-bg.jpg")}
+.bg-forest{background-image:linear-gradient(#102217bb,#102217bb),url("assets/images/forest-bg.jpg")}
+.bg-deep-forest{background-image:linear-gradient(#07100cdd,#07100cdd),url("assets/images/deep-forest-bg.jpg")}
+.background-grain,.noise-layer{position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.landing-story{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+.story-panel{height:50svh;min-height:300px;display:grid;place-items:center;padding:28px;text-align:center}
+.hero{
+  position:relative;
+  z-index:3;
+  align-content:center;
+  transform:translateY(-120px);
+}
+.eyebrow{margin:0 0 16px;color:#d5b47f;letter-spacing:.17em;font-size:11px}
+.hero h1,.start-screen h1{font:500 clamp(37px,10vw,60px)/1.5 "Shippori Mincho",serif;letter-spacing:.02em;margin:0}
+.hero-note{font-size:14px;color:#d7c5a7;margin-top:24px}
+.scroll-cue{position:absolute;bottom:38px;font-size:10px;letter-spacing:.2em;color:#c5b497}
+.scroll-cue:after{content:"";display:block;width:1px;height:36px;background:currentColor;margin:12px auto 0}
+.story-copy{font:500 clamp(34px,9vw,54px)/1.65 "Shippori Mincho",serif;opacity:.06;transform:translateY(24px);transition:opacity .7s,transform .7s;will-change:opacity,transform}
+.story-panel.is-visible .story-copy{opacity:1;transform:none}
+.story-copy.small{font-size:clamp(25px,7vw,38px)}
+.feature-section{padding:20px max(24px,calc((100% - 600px)/2));background:linear-gradient(#111d16dd,#17120eee);min-height:50svh}
+.feature-section h2{font:500 30px/1.5 "Shippori Mincho",serif;margin:0 0 48px}
+.feature-card{border-top:1px solid var(--line);padding:25px 0 30px}
+.feature-card span{font-size:12px;color:#d5b47f}
+.feature-card h3{font:500 21px/1.6 "Shippori Mincho",serif;margin:12px 0}
+.feature-card p{font-size:14px;line-height:2;color:#d5c6b1;margin:0}
+.final-panel{background:#16100d;padding:96px 24px calc(96px + env(safe-area-inset-bottom));text-align:center}
+.final-panel p{font:500 26px "Shippori Mincho",serif;margin:0 0 28px}
+.primary-button,.secondary-button{border:0;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:26px;min-height:58px;padding:14px 25px;background:#e4cfaa;color:#21170f;font-weight:700;border-radius:2px;transition:transform .2s,background .2s}
+.primary-button:hover{transform:translateY(-2px);background:#f5e4c4}
+.primary-button span{font-size:22px;font-weight:400}
+.secondary-button{border:1px solid #c7ae81;background:transparent;color:#eadcc4;border-radius:2px}
+.question-page{background:radial-gradient(circle at 50% 0,#2a3b2e,#17120e 62%);min-height:100svh}
+.question-shell{width:100%;max-width:620px;margin:auto;min-height:100svh;padding:24px;overflow-x:hidden}
+.start-screen,.loading-screen,.response-screen{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.loading-screen,.response-screen{position:fixed;inset:0;z-index:10;padding:24px;background:radial-gradient(circle at 50% 15%,#2a3b2e,#17120e 70%)}
+.start-screen h1{font-size:clamp(34px,9vw,52px);margin-bottom:22px}
+.start-screen>p:not(.eyebrow),.response-screen>p:not(.eyebrow){color:#d7c5a7;line-height:2;font-size:14px;margin:0 0 34px}
+.quiet-note{font-size:11px!important;color:#ac9b82!important;margin-top:17px!important}
+.quiz-top{display:flex;align-items:center;justify-content:space-between;padding:7px 0 22px;font-size:12px}
+.back-link{color:#dfc99e;text-decoration:none}
+.quiz-top>div{text-align:right}
+.progress-track{height:3px;width:104px;background:#6d5d4b;margin-top:7px}
+.progress-track div{height:100%;background:#dfc99e;transition:width .3s}
+.question-card{padding:28px 0}
+.question-label{color:#d4b27a;font-size:12px;letter-spacing:.16em}
+.question-card h2{font:500 26px/1.6 "Shippori Mincho",serif;margin:12px 0 25px}
+.options{display:grid;gap:10px}
+.option-button{width:100%;text-align:left;border:1px solid rgba(239,225,200,.3);border-radius:2px;padding:17px 16px;background:rgba(29,24,18,.48);color:var(--cream);line-height:1.65;font-size:14px;transition:.2s}
+.option-button:hover,.option-button:focus-visible{border-color:#e3c78f;background:rgba(78,58,39,.75);outline:none}
+.option-button.is-selected{background:#e6cf9f;color:#251c13;border-color:#e6cf9f;font-weight:700}
+.option-letter{display:inline-block;color:#d7b981;width:27px}
+.is-selected .option-letter{color:#4d3925}
+.submit-button{margin:15px 0 48px;width:100%}
+.form-message{color:#edbb9b;font-size:14px;min-height:1.4em}
+.steam-loader{height:95px;width:100px;position:relative;margin-bottom:25px}
+.steam-loader:after{content:"";position:absolute;bottom:0;left:15px;width:70px;height:34px;border:3px solid #ddc18c;border-top:0;border-radius:0 0 35px 35px}
+.steam-loader i{position:absolute;bottom:35px;width:4px;height:45px;background:#dac394;opacity:.75;border-radius:50%;animation:steam 1.8s ease-in-out infinite}
+.steam-loader i:nth-child(1){left:27px}
+.steam-loader i:nth-child(2){left:48px;animation-delay:.35s}
+.steam-loader i:nth-child(3){left:68px;animation-delay:.7s}
+@keyframes steam{50%{transform:translateY(-22px) translateX(7px);opacity:.1}
+}
+.loading-screen p:first-of-type{font:500 25px "Shippori Mincho",serif}
+.response-screen h2{font:500 32px "Shippori Mincho",serif;margin:0 0 15px}
+.response-screen .primary-button{margin-top:4px}
+.result-page{background:#070806;min-height:100svh}
+.result-intro{min-height:100svh;display:grid;place-content:center;text-align:center;font:500 23px "Shippori Mincho",serif}
+.eye-loader{width:42px;height:42px;border:1px solid #9d8e70;border-radius:50%;margin:auto;animation:pulse 1.3s ease-in-out infinite}
+.eye-loader:after{content:"";display:block;background:#d7c08e;width:8px;height:8px;border-radius:50%;margin:16px auto}
+@keyframes pulse{50%{transform:scale(1.5);opacity:.2}
+}
+.surprise{position:fixed;inset:0;background:#000;z-index:5;overflow:hidden}
+.surprise img{width:100%;height:100%;object-fit:cover;opacity:.84;animation:scare .9s steps(2) infinite}
+.surprise p{position:absolute;inset:auto 0 14%;text-align:center;font:500 28px "Shippori Mincho",serif;opacity:0;animation:joke .8s ease forwards 1.7s}
+.noise-layer{z-index:1;animation:flicker .14s steps(2) infinite}
+@keyframes scare{50%{filter:contrast(1.4) brightness(.78);transform:translate(2px,-1px)}
+}
+@keyframes flicker{50%{opacity:.45}
+}
+@keyframes joke{to{opacity:1}
+}
+.actual-result{max-width:640px;margin:auto;padding:80px 24px 70px;background:radial-gradient(circle at 50% 0,#314236,#17120e 75%);min-height:100svh}
+.result-lead{font:500 21px "Shippori Mincho",serif;margin:8px 0 16px}
+.result-type{font:500 clamp(32px,9vw,48px)/1.55 "Shippori Mincho",serif;color:#f0d6a5;margin:0 0 38px}
+.result-card{border-top:1px solid var(--line);padding:20px 0}
+.result-card h3{font-size:12px;letter-spacing:.12em;color:#d7b981;margin:0 0 9px}
+.result-card p,.result-card li{font-size:14px;line-height:1.9;margin:0;color:#f2e7d4}
+.result-card ul{margin:0;padding-left:18px}
+.actual-result .secondary-button{margin-top:40px}
+.raw-result{white-space:pre-wrap;word-break:break-word}
+.fallback-message{line-height:1.9;color:#e4d4ba}
+@media (max-width:430px){
+  body{font-size:16px}
+  .question-shell{padding:20px 18px}
+  .quiz-top{padding-bottom:14px}
+  .question-card{padding:22px 0}
+  .question-card h2{font-size:25px;line-height:1.6;letter-spacing:0}
+  .option-button{padding:17px 15px;font-size:15px;line-height:1.7;overflow-wrap:anywhere}
+  .option-letter{width:25px}
+  .primary-button{width:100%;gap:16px;padding-inline:18px;font-size:16px;white-space:normal;line-height:1.45}
+  .start-screen .primary-button,.response-screen .primary-button{width:auto;min-width:190px}
+  .start-screen h1{font-size:clamp(34px,9.5vw,43px);line-height:1.55}
+  .start-screen>p:not(.eyebrow),.response-screen>p:not(.eyebrow),.feature-card p{font-size:15px;line-height:2}
+  .feature-section h2{font-size:28px}
+  .feature-card h3{font-size:22px}
+  .story-copy{font-size:clamp(32px,9vw,40px);line-height:1.7}
+}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+.story-copy{opacity:1;transform:none}
+.scroll-bg{transition:none}
+}
