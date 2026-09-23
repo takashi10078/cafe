@@ -6,16 +6,14 @@ body{margin:0;min-width:320px;width:100%;max-width:100%;overflow-x:hidden;oversc
 button,a{font:inherit}
 button{cursor:pointer}
 .top-image{
-  position: relative;
-  z-index: 1;
-
-  width: 100vw;
-  height: 130vw;
-
-  background-image: url("assets/images/cafe-bg6.png");
-  background-size: cover;
-
-  pointer-events: none;
+  position:relative;
+  z-index:0;
+  width:100vw;
+  height:130vw;
+  background-image:url("assets/images/cafe-bg6.png");
+  background-size:cover;
+  background-position:center top;
+  pointer-events:none;
 }
 .background-stack{position:fixed;inset:0;z-index:-2;background:#17120e;overflow:hidden}
 .scroll-bg{position:absolute;inset:-3%;background:center/cover no-repeat;opacity:0;transition:opacity .65s ease;filter:brightness(.5) saturate(.7);transform:scale(1.04)}
@@ -26,7 +24,7 @@ button{cursor:pointer}
 .background-grain,.noise-layer{position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 .landing-story{
   position:relative;
-  z-index:2;
+  z-index:1;
   width:100%;
   max-width:100%;
   overflow-x:hidden;
@@ -34,14 +32,14 @@ button{cursor:pointer}
 .story-panel{height:50svh;min-height:300px;display:grid;place-items:center;padding:28px;text-align:center}
 .hero{
   position:relative;
-  z-index:3;
+  z-index:2;
   align-content:center;
-  transform:translateY(-120px);
+  transform:translateY(clamp(-120px,-12vh,-48px));
 }
 .eyebrow{margin:0 0 16px;color:#d5b47f;letter-spacing:.17em;font-size:11px}
-.hero h1,.start-screen h1{font:500 clamp(37px,10vw,60px)/1.5 "Shippori Mincho",serif;letter-spacing:.02em;margin:0}
-.hero-note{font-size:14px;color:#d7c5a7;margin-top:24px}
-.scroll-cue{position:absolute;bottom:38px;font-size:10px;letter-spacing:.2em;color:#c5b497}
+.hero h1,.start-screen h1{font:500 clamp(30px,8vw,60px)/1.5 "Shippori Mincho",serif;letter-spacing:.02em;margin:0;max-width:100%;overflow-wrap:anywhere}
+.hero-note{font-size:clamp(12px,3.6vw,14px);line-height:1.8;color:#d7c5a7;margin:clamp(14px,4vw,24px) 0 0;max-width:100%;overflow-wrap:anywhere}
+.scroll-cue{position:absolute;bottom:max(24px,env(safe-area-inset-bottom));font-size:10px;letter-spacing:.2em;color:#c5b497}
 .scroll-cue:after{content:"";display:block;width:1px;height:36px;background:currentColor;margin:12px auto 0}
 .story-copy{font:500 clamp(34px,9vw,54px)/1.65 "Shippori Mincho",serif;opacity:.06;transform:translateY(24px);transition:opacity .7s,transform .7s;will-change:opacity,transform}
 .story-panel.is-visible .story-copy{opacity:1;transform:none}
