@@ -220,7 +220,15 @@ button{cursor:pointer}
 .options{display:grid;gap:10px}
 .option-button{width:100%;text-align:left;border:1px solid rgba(239,225,200,.3);border-radius:2px;padding:17px 16px;background:rgba(29,24,18,.48);color:var(--cream);line-height:1.65;font-size:14px;transition:.2s}
 .option-button:hover,.option-button:focus-visible{border-color:#e3c78f;background:rgba(78,58,39,.75);outline:none}
-.option-button.is-selected{background:#e6cf9f;color:#251c13;border-color:#e6cf9f;font-weight:700}
+.option-button.is-selected{
+  background:rgba(78,58,39,.75);
+  color:#f0d6a5;
+  border-color:#d5b47f;
+  font-weight:700;
+}
+.option-button.is-selected .option-letter{
+  color:#f0d6a5;
+}
 .option-letter{display:inline-block;color:#d7b981;width:27px}
 .is-selected .option-letter{color:#4d3925}
 .submit-button{margin:15px 0 48px;width:100%}
@@ -237,6 +245,10 @@ button{cursor:pointer}
 .response-screen h2{font:500 32px "Shippori Mincho",serif;margin:0 0 15px}
 .response-screen .primary-button{margin-top:4px}
 .result-page{background:#070806;min-height:100svh}
+.image-result{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden}
+.image-result img{display:block;width:100%;height:100svh;object-fit:cover}
+.image-result img[hidden],.image-result button[hidden]{display:none}
+.result-view-button{position:absolute;z-index:1;left:50%;top:50%;width:auto;transform:translate(-50%,-50%)}
 .result-intro{min-height:100svh;display:grid;place-content:center;text-align:center;font:500 23px "Shippori Mincho",serif}
 .eye-loader{width:42px;height:42px;border:1px solid #9d8e70;border-radius:50%;margin:auto;animation:pulse 1.3s ease-in-out infinite}
 .eye-loader:after{content:"";display:block;background:#d7c08e;width:8px;height:8px;border-radius:50%;margin:16px auto}
@@ -262,6 +274,15 @@ button{cursor:pointer}
 .actual-result .secondary-button{margin-top:40px}
 .raw-result{white-space:pre-wrap;word-break:break-word}
 .fallback-message{line-height:1.9;color:#e4d4ba}
+.recommended-section{margin:0 0 36px}
+.recommended-section>h2{font:500 27px/1.55 "Shippori Mincho",serif;color:#f0d6a5;margin:4px 0 20px}
+.cafe-card{position:relative;padding:24px 0}
+.cafe-card .cafe-number{display:block;color:#d7b981;font:500 13px "Zen Kaku Gothic New",sans-serif;letter-spacing:.15em;margin-bottom:9px}
+.cafe-card h3{font:500 20px/1.6 "Shippori Mincho",serif;color:#f2e7d4;letter-spacing:0;margin:0 0 7px}
+.cafe-card p{margin:4px 0;overflow-wrap:anywhere}
+.cafe-rating{color:#e2c68e!important;font-size:12px!important}
+.map-link{display:inline-block;margin-top:16px;border:1px solid rgba(215,185,129,.55);padding:10px 15px;color:#e5d4b2;text-decoration:none;font-size:11px;letter-spacing:.12em}
+.map-link:hover,.map-link:focus-visible{background:rgba(78,58,39,.75);outline:none}
 @media (max-width:430px){
   body{font-size:16px}
   .question-shell{padding:20px 18px}
@@ -280,4 +301,10 @@ button{cursor:pointer}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 .story-copy{opacity:1;transform:none}
 .scroll-bg{transition:none}
+}
+
+/* スタート画面ではページ全体をスクロールさせない */
+body.question-page.starting {
+  overflow: hidden;
+  height: 100svh;
 }
