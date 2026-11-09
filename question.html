@@ -4,4 +4,14 @@
   <section id="start-screen" class="start-screen"><p class="eyebrow">CAFE COMPASS / 02</p><h1>あなたに合う<br>カフェを探します。</h1><p>10の問いに、直感で答えてください。<br>いまの気分が、行き先を教えてくれます。</p><button id="start-button" class="primary-button" type="button">スタート <span>→</span></button><p class="quiet-note">音が流れます。音量は端末で調整できます。</p></section>
   <section id="quiz-screen" class="quiz-screen" hidden aria-live="polite"><div class="quiz-top"><a href="index.html" class="back-link">← 戻る</a><div><span id="question-count">00 / 10</span><div class="progress-track"><div id="progress-bar"></div></div></div></div><form id="quiz-form" novalidate><div id="question-container"></div><p id="form-message" class="form-message" role="alert"></p><button id="submit-button" class="primary-button submit-button" type="submit">診断結果を送信する <span>→</span></button></form></section>
   <section id="loading-screen" class="loading-screen" hidden aria-live="polite"><div class="steam-loader" aria-hidden="true"><i></i><i></i><i></i></div><p id="loading-message">あなたの回答を分析しています……</p><p class="quiet-note">少しだけ、お待ちください。</p></section>
+  <section id="response-screen" class="response-screen" hidden aria-live="polite">
+    <p class="eyebrow">ANALYSIS COMPLETE</p>
+    <h2>準備ができました。</h2>
+    <p>あなたのための回答を、そっと用意しました。</p>
+    <button id="view-result-button" class="primary-button" type="button">回答を見る <span>→</span></button>
+  </section>
+  <main class="image-result" hidden aria-live="polite">
+    <img id="woman-image" src="assets/images/woman.png" alt="" hidden>
+    <img id="cafe-image" src="assets/images/cafe_end.png" alt="診断結果" hidden>
+  </main>
 </main><script src="script.js"></script></body></html>

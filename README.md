@@ -6,10 +6,9 @@
 
 ```text
 index.html       導入・スクロール演出・診断への入口
-question.html    スタート画面、10問、ローディング画面
-result.html      画像のみを表示する結果画面
+question.html    スタート画面、10問、ローディング、結果画面
 style.css        全ページの見た目とアニメーション
-script.js        質問と画面遷移
+script.js        質問と画面切り替え
 assets/images/   差し替え用画像
 assets/audio/    差し替え用BGM
 ```
