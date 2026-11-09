@@ -118,7 +118,7 @@ function initQuiz() {
   document.querySelector("#start-button").addEventListener("click", () => {
     document.body.classList.remove("starting");
 
-    bgm = new Audio("assets/audio/bgm.mp3");
+    bgm = new Audio("assets/audio/bgm (2).mp3");
     bgm.loop = true;
     bgm.volume = .35;
     bgm.play().catch(() => {});
@@ -157,9 +157,9 @@ function initResult() {
         womanImage.hidden = true;
         cafeImage.hidden = false;
 
-      }, 3000);
+      }, 3500);
 
-    }, 100);
+    }, 1500);
   });
 }
 
