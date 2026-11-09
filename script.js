@@ -128,7 +128,7 @@ function initQuiz() {
     renderQuestions(answers);
   });
   document.querySelector("#quiz-form").addEventListener("click", event => { const button = event.target.closest(".option-button"); if (!button) return; answers[button.dataset.key] = decodeURIComponent(button.dataset.value); renderQuestions(answers); const done = Object.keys(answers).length; document.querySelector("#question-count").textContent = `${String(done).padStart(2,"0")} / 10`; document.querySelector("#progress-bar").style.width = `${done * 10}%`; document.querySelector("#form-message").textContent = ""; });
-  document.querySelector("#quiz-form").addEventListener("submit", event => { event.preventDefault(); if (Object.keys(answers).length !== QUESTIONS.length) { document.querySelector("#form-message").textContent = "すべての質問に回答してください。"; return; } quiz.hidden = true; loading.hidden = false; document.querySelector("#loading-message").textContent = "回答を分析中です……"; window.setTimeout(() => { location.href = "result.html"; }, 7500); });
+  document.querySelector("#quiz-form").addEventListener("submit", event => { event.preventDefault(); if (Object.keys(answers).length !== QUESTIONS.length) { document.querySelector("#form-message").textContent = "すべての質問に回答してください。"; return; } quiz.hidden = true; loading.hidden = false; document.querySelector("#loading-message").textContent = "回答を分析中です……"; window.setTimeout(() => { location.href = "result.html"; }, 11500); });
 }
 
 function initResult() {
@@ -157,9 +157,9 @@ function initResult() {
         womanImage.hidden = true;
         cafeImage.hidden = false;
 
-      }, 3500);
+      }, 3000);
 
-    }, 1500);
+    }, 1000);
   });
 }
 
